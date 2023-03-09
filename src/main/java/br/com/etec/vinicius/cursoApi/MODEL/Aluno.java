@@ -10,16 +10,16 @@ public class Aluno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private BigInteger id;
+    private Long id;
     private String nomealuno;
     private Integer idcurso;
     private Integer idcidade;
 
-    public BigInteger getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigInteger id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
