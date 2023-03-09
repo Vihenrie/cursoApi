@@ -1,6 +1,8 @@
 package br.com.etec.vinicius.cursoApi.MODEL;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -11,6 +13,9 @@ public class Curso {
 
     private Integer id;
     private String nomecurso;
+
+    @OneToMany(mappedBy = "curso")
+    private List<Aluno> alunocurso = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -26,6 +31,14 @@ public class Curso {
 
     public void setNomecurso(String nomecurso) {
         this.nomecurso = nomecurso;
+    }
+
+    public List<Aluno> getAlunocurso() {
+        return alunocurso;
+    }
+
+    public void setAlunocurso(List<Aluno> alunocurso) {
+        this.alunocurso = alunocurso;
     }
 
     @Override

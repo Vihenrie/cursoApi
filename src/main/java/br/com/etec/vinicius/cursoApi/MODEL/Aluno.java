@@ -1,7 +1,6 @@
 package br.com.etec.vinicius.cursoApi.MODEL;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.util.Objects;
 
 @Entity
@@ -12,8 +11,14 @@ public class Aluno {
 
     private Long id;
     private String nomealuno;
-    private Integer idcurso;
-    private Integer idcidade;
+
+    @ManyToOne
+    @JoinColumn(name="idcurso")
+    private Curso curso;
+
+    @ManyToOne
+    @JoinColumn(name="idcidade")
+    private Cidade cidade;
 
     public Long getId() {
         return id;
@@ -31,20 +36,20 @@ public class Aluno {
         this.nomealuno = nomealuno;
     }
 
-    public Integer getIdcurso() {
-        return idcurso;
+    public Curso getCurso() {
+        return curso;
     }
 
-    public void setIdcurso(Integer idcurso) {
-        this.idcurso = idcurso;
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 
-    public Integer getIdcidade() {
-        return idcidade;
+    public Cidade getCidade() {
+        return cidade;
     }
 
-    public void setIdcidade(Integer idcidade) {
-        this.idcidade = idcidade;
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
 
     @Override

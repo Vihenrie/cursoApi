@@ -1,6 +1,8 @@
 package br.com.etec.vinicius.cursoApi.MODEL;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -11,7 +13,20 @@ public class Cidade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int id;
+
     private String nomecidade;
+
+    @OneToMany(mappedBy = "cidade")
+    private List<Aluno> alunoscidade = new ArrayList<>();
+
+    public List<Aluno> getAlunoscidade() {
+        return alunoscidade;
+    }
+
+    public void setAlunoscidade(List<Aluno> alunoscidade) {
+        this.alunoscidade = alunoscidade;
+    }
+
     private String UF;
 
     public int getId() {
