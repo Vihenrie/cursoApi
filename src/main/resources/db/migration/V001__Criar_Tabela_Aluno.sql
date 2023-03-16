@@ -4,3 +4,4 @@ Create Table Aluno(
     id_curso int not null,
     id_cidade int not null
 );
+
