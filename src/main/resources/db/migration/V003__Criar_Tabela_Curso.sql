@@ -1,6 +1,6 @@
 Create Table Curso(
     id int not null auto_increment primary key,
-    nomecurso varchar(50)
+    nomecurso varchar(150)
 );
 
 alter table Aluno add CONSTRAINT FK_Aluno_Curso foreign key(id_curso) references Curso(id);
