@@ -1,4 +1,6 @@
-package br.com.etec.vinicius.cursoApi.MODEL;
+package br.com.etec.vinicius.cursoApi.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,18 +13,19 @@ public class Curso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Integer id;
+    private Integer idCurso;
     private String nomecurso;
 
     @OneToMany(mappedBy = "curso")
+    @JsonIgnore
     private List<Aluno> alunocurso = new ArrayList<>();
 
     public Integer getId() {
-        return id;
+        return idCurso;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.idCurso = idCurso;
     }
 
     public String getNomecurso() {
@@ -46,11 +49,11 @@ public class Curso {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Curso curso = (Curso) o;
-        return id.equals(curso.id);
+        return idCurso.equals(curso.idCurso);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(idCurso);
     }
 }

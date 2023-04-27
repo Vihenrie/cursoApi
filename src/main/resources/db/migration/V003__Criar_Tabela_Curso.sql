@@ -1,10 +1,10 @@
 Create Table Curso(
-    id int not null auto_increment primary key,
+    id_curso int not null auto_increment primary key,
     nomecurso varchar(150)
 );
 
-alter table Aluno add CONSTRAINT FK_Curso_Aluno foreign key(id_curso) references Curso(id);
-alter table Aluno add CONSTRAINT FK_Cidade_Aluno foreign key(id_cidade) references Cidade(id);
+alter table Aluno add CONSTRAINT FK_Curso_Aluno foreign key(id_curso) references Curso(id_curso);
+alter table Aluno add CONSTRAINT FK_Cidade_Aluno foreign key(id_cidade) references Cidade(id_cidade);
 
 insert into Cidade(nomecidade, uf) values ('Lençóis Paulista', "SP");
 insert into Cidade(nomecidade, uf) values ('Belém', 'PA');

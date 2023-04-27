@@ -1,4 +1,4 @@
-package br.com.etec.vinicius.cursoApi.MODEL;
+package br.com.etec.vinicius.cursoApi.model;
 
 import javax.persistence.*;
 import java.util.Objects;

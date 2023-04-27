@@ -1,4 +1,6 @@
-package br.com.etec.vinicius.cursoApi.MODEL;
+package br.com.etec.vinicius.cursoApi.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -12,11 +14,12 @@ public class Cidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private int id;
+    private int idCidade;
 
     private String nomecidade;
 
     @OneToMany(mappedBy = "cidade")
+    @JsonIgnore
     private List<Aluno> alunoscidade = new ArrayList<>();
 
     public List<Aluno> getAlunoscidade() {
@@ -30,11 +33,11 @@ public class Cidade {
     private String UF;
 
     public int getId() {
-        return id;
+        return idCidade;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idCidade = idCidade;
     }
 
     public String getNomecidade() {
@@ -58,11 +61,11 @@ public class Cidade {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cidade cidade = (Cidade) o;
-        return id == cidade.id;
+        return idCidade == cidade.idCidade;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(idCidade);
     }
 }
