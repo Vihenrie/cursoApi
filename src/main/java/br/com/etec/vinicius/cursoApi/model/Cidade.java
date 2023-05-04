@@ -18,6 +18,8 @@ public class Cidade {
 
     private String nomecidade;
 
+    private String UF;
+
     @OneToMany(mappedBy = "cidade")
     @JsonIgnore
     private List<Aluno> alunoscidade = new ArrayList<>();
@@ -29,8 +31,6 @@ public class Cidade {
     public void setAlunoscidade(List<Aluno> alunoscidade) {
         this.alunoscidade = alunoscidade;
     }
-
-    private String UF;
 
     public int getId() {
         return idCidade;
