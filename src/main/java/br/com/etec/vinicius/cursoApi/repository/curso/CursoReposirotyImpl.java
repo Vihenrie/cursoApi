@@ -2,12 +2,14 @@ package br.com.etec.vinicius.cursoApi.repository.curso;
 
 import br.com.etec.vinicius.cursoApi.model.Curso;
 import br.com.etec.vinicius.cursoApi.repository.filter.CursoFilter;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.util.Predicates;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -29,13 +31,21 @@ public class CursoReposirotyImpl implements CursoRepositoryQuery{
 
         Predicate[] predicates = criarRestricoes(cursoFilter, builder, root);
         criteria.where(predicates);
+        criteria.orderBy(builder.asc(root.get("nomecurso")));
+
+        TypedQuery<Curso> query = manager.createQuery(criteria);
 
         return null;
     }
 
     private Predicate[] criarRestricoes(CursoFilter cursoFilter, CriteriaBuilder builder, Root<Curso> root) {
 
-        List<Predicates> predicates = new ArrayList<>();
-        if(StringUtils)
+        List<Predicate> predicates = new ArrayList<>();
+
+        if(!StringUtils.isEmpty(cursoFilter.getNomecurso())){
+            predicates.add(builder.like(builder.lower(root.get("nomecurso")),
+                    "%" + cursoFilter.getNomecurso().toLowerCase() + "%"));
+        }
+        return predicates.toArray(new Predicate[predicates.size()]);
     }
 }
