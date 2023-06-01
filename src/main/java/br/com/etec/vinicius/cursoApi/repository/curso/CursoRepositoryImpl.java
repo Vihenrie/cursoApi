@@ -18,7 +18,7 @@ import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CursoReposirotyImpl implements CursoRepositoryQuery{
+public class CursoRepositoryImpl implements CursoRepositoryQuery{
 
     @PersistenceContext
     private EntityManager manager;
