@@ -68,14 +68,15 @@ public class CidadeRepositoryImpl implements CidadeRepositoryQuery{
 
         List<Predicate> predicates = new ArrayList<>();
 
-        if(!StringUtils.isEmpty(cidadeFilter.getNomecidade())){
-            predicates.add(builder.like(builder.lower(root.get("nomecidade")),
-                    "%" + cidadeFilter.getNomecidade().toLowerCase() + "%"));
-        }
-        if(!StringUtils.isEmpty(cidadeFilter.getUf())){
-            predicates.add(builder.like(builder.lower(root.get("nomeuf")),
+        if(!StringUtils.isEmpty(cidadeFilter.getUf())) {
+            predicates.add(builder.like(builder.lower(root.get("uf")),
                     "%" + cidadeFilter.getUf().toLowerCase() + "%"));
         }
+        if (!StringUtils.isEmpty(cidadeFilter.getNomecidade())) {
+            predicates.add(builder.like(builder.lower(root.get("nomecidade")),
+                    "%" + cidadeFilter.getNomecidade().toLowerCase() +"%"));
+        }
+
         return predicates.toArray(new Predicate[predicates.size()]);
     }
 

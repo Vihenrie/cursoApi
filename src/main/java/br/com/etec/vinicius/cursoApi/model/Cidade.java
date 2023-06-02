@@ -15,10 +15,8 @@ public class Cidade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int idCidade;
-
     private String nomecidade;
-
-    private String UF;
+    private String uf;
 
     @OneToMany(mappedBy = "cidade")
     @JsonIgnore
@@ -48,12 +46,12 @@ public class Cidade {
         this.nomecidade = nomecidade;
     }
 
-    public String getUF() {
-        return UF;
+    public String getUf() {
+        return uf;
     }
 
-    public void setUF(String UF) {
-        this.UF = UF;
+    public void setUf(String uf) {
+        this.uf = uf;
     }
 
     @Override
