@@ -14,4 +14,44 @@ public class AlunoDTO {
         this.uf = uf;
         this.nomecurso = nomecurso;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNomealuno() {
+        return nomealuno;
+    }
+
+    public void setNomealuno(String nomealuno) {
+        this.nomealuno = nomealuno;
+    }
+
+    public String getNomecidade() {
+        return nomecidade;
+    }
+
+    public void setNomecidade(String nomecidade) {
+        this.nomecidade = nomecidade;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
+    public String getNomecurso() {
+        return nomecurso;
+    }
+
+    public void setNomecurso(String nomecurso) {
+        this.nomecurso = nomecurso;
+    }
 }
